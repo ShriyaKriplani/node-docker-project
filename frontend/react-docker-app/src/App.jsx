@@ -2,7 +2,6 @@ import './tailwind.css';
 import NavBar from './pages/NavBar';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import {function1} from 'shriya_utils'
 
 function App() {
   const [title,setTitle] = useState('');
@@ -11,7 +10,6 @@ function App() {
   const [error,setError] = useState('');
   useEffect(()=>{
   fetchTodo();
-  function1();
   },[])
    async function fetchTodo() {
 try {

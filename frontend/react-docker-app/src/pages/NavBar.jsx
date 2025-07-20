@@ -9,7 +9,6 @@ function NavBar() {
           "Content-Type":"application/json"
         }
       })
-      console.log(response)
       setisLoggedIn(!isLoggedin)
     }
     const handleLogout = async()=>{
