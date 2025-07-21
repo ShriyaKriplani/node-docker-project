@@ -1,5 +1,4 @@
 version: '3.8'
-name : docker-app
 
 services:
   mongo:
@@ -11,6 +10,7 @@ services:
       - mongo_data:/data/db
     networks:
       - docker-app
+
   backend:
     build: 
       context: ./backend
@@ -27,10 +27,11 @@ services:
     depends_on:
       - mongo
     command: npm run dev
+
   frontend:
     build: 
       context: ./frontend/react-docker-app
-      dockerfile: DockerFile 
+      dockerfile: DockerFile  # Double-check if it's Dockerfile or Dockerfile (case-sensitive)
     volumes:
       - ./frontend/react-docker-app:/app
       - /app/node_modules
@@ -43,7 +44,7 @@ services:
       - "5173:5173"
 
 volumes:
-   mongo_data:
+  mongo_data:
 
 networks:
   docker-app:
