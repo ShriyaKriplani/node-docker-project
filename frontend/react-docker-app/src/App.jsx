@@ -13,7 +13,7 @@ function App() {
   },[])
    async function fetchTodo() {
 try {
-      const response = await axios.get("http://localhost:8001/api/getTodo",{
+      const response = await axios.get("http://16.171.161.223/api/getTodo",{
         headers:{
           "Content-Type":"application/json",
           "Authorization" : "Bearer "
@@ -26,7 +26,7 @@ try {
   }
   const addTodo =async ()=>{
     try {
-      const response = await axios.post("http://localhost:8001/api/createTodo",{title,description},{
+      const response = await axios.post("http://16.171.161.223/api/createTodo",{title,description},{
         headers:{
           "Content-Type":"application/json",
           "Authorization" : "Bearer "
