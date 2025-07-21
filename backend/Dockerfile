@@ -2,12 +2,13 @@ FROM node:22
 
 WORKDIR /app
 
-COPY ./package*.json ./
+# Copy package.json and lock file from the root
+COPY package*.json ./
 
+# Install deps
 RUN npm install
 
-COPY . .
+# Copy the backend code
+COPY backend/. ./
 
-EXPOSE 8001
-
-CMD [ "npm run dev" ]
+CMD ["npm", "run", "dev"]

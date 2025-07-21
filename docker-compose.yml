@@ -13,8 +13,8 @@ services:
 
   backend:
     build: 
-      context: ./backend
-      dockerfile: Dockerfile 
+      context: .
+      dockerfile: ./backendDockerfile 
     env_file:
       - ./backend/.env 
     ports:
