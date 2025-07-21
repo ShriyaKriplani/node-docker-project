@@ -11,4 +11,3 @@ RUN npm install
 # Copy the backend code
 COPY backend/. ./
 
-CMD ["npm", "run", "dev"]
