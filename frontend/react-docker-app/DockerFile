@@ -1,13 +1,12 @@
-FROM node:22
+FROM node:20-slim
 
 WORKDIR /app
 
+# Only copy package files and install cleanly
 COPY package*.json ./
+RUN npm install --legacy-peer-deps --omit=optional
 
-RUN npm install
-
+# Now copy the rest of the code (not node_modules)
 COPY . .
-
-EXPOSE 5173
 
 CMD ["npm", "run", "dev"]

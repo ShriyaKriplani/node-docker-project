@@ -1,50 +1,10 @@
-version: '3.8'
-
 services:
-  mongo:
-    image: mongo:6
-    container_name: mongodb
-    ports:
-      - "27017:27017"
-    volumes:
-      - mongo_data:/data/db
-    networks:
-      - docker-app
-
-  backend:
-    build: 
-      context: .
-      dockerfile: ./backend/Dockerfile 
-    env_file:
-      - ./backend/.env 
-    ports:
-      - "8001:8001"
-    volumes:
-      - ./backend:/app
-    networks:
-      - docker-app
-    depends_on:
-      - mongo
-    command: npm run dev
-
   frontend:
-    build: 
+    build:
       context: ./frontend/react-docker-app
-      dockerfile: DockerFile  # Double-check if it's Dockerfile or Dockerfile (case-sensitive)
+      dockerfile: Dockerfile
     volumes:
       - ./frontend/react-docker-app:/app
-      - /app/node_modules
-    networks:
-      - docker-app
-    command: npm run dev
-    depends_on:
-      - backend
+      - /app/node_modules     # Prevents overwriting container modules with host modules
     ports:
       - "5173:5173"
-
-volumes:
-  mongo_data:
-
-networks:
-  docker-app:
-    driver: bridge

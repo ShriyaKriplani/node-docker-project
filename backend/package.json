@@ -5,7 +5,6 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon backend/app.js",
-    "build": "npm install && npm install --prefix frontend/react-docker-app && npm run build --prefix frontend/react-docker-app",
     "start": "nodemon backend/app.js"
   },
   "keywords": [],
@@ -13,7 +12,6 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "bcrpyt": "^2.0.0",
     "bcrypt": "^6.0.0",
     "body-parser": "^2.2.0",
     "cookie-parser": "^1.4.7",
