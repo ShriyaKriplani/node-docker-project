@@ -13,14 +13,15 @@ services:
 
   backend:
     build: 
-      context: .
-      dockerfile: ./backend/Dockerfile 
+      context: ./backend
+      dockerfile: Dockerfile 
     env_file:
       - ./backend/.env 
     ports:
       - "8001:8001"
     volumes:
       - ./backend:/app
+      - /app/node_modules
     networks:
       - docker-app
     depends_on:
