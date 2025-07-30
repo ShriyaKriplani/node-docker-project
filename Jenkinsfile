@@ -2,24 +2,27 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repository')
+        stage('Clone Repository'){
             steps {
                   
                   git 'https://github.com/ShriyaKriplani/node-docker-project.git'
             }
+        }
 
         stage('Build Docker Image')
-            steps {
+            {steps {
                 script {
                     sh 'docker-compose -f docker-compose.yml build'
                 }
             }
+            }
 
         stage('Run Docker Container')
-            steps {
+            {steps {
                 script {
                     sh 'docker-compose -f docker-compose.yml up -d'
                 }
+            }
             }
     }
 
