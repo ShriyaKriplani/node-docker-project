@@ -31,7 +31,7 @@ services:
   frontend:
     build: 
       context: ./frontend/react-docker-app
-      dockerfile: Dockerfile  # Double-check if it's Dockerfile or Dockerfile (case-sensitive)
+      dockerfile: DockerFile  # Double-check if it's Dockerfile or Dockerfile (case-sensitive)
     volumes:
       - ./frontend/react-docker-app:/app
       - /app/node_modules
