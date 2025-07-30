@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 function NavBar() {
     const [isLoggedin,setisLoggedIn] = useState(false);
     const handleLogin = async()=>{
-      const response = await axios.post("http://16.171.161.223/api/login",{emailId:'kriplanishriya@gmail.com',password:'shriya'},{
+      const response = await axios.post("http://localhost:8001/api/login",{emailId:'kriplanishriya@gmail.com',password:'shriya'},{
         headers:{
           "Content-Type":"application/json"
         }
@@ -12,7 +12,7 @@ function NavBar() {
       setisLoggedIn(!isLoggedin)
     }
     const handleLogout = async()=>{
-       const resposne = await axios.get("http://16.171.161.223/api/logout",{
+       const resposne = await axios.get("http://localhost:8001/api/logout",{
         headers:{
           "Content-Type":"application/json"
         }
